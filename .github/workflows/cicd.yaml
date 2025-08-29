@@ -56,7 +56,7 @@ jobs:
         uses: appleboy/ssh-action@v0.1.10
         with:
           host: ${{ secrets.EC2_HOST }}
-          username: ec2-user   # or ubuntu if AMI is Ubuntu
+          username: ubuntu   # or ubuntu if AMI is Ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             docker login -u AWS -p $(aws ecr get-login-password --region ${{ secrets.AWS_DeFAULT_REGION }}) ${{ steps.login-ecr.outputs.registry }}
